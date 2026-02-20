@@ -25,9 +25,9 @@ export default function MovieCard({ movie }: Props) {
     }
 
     // If movie comes from rated endpoint, it includes rating
-    if ((movie as any).rating) {
-      setUserRating((movie as any).rating);
-    }
+    if (movie.rating) {
+  setUserRating(movie.rating);
+}
   }, [movie]);
 
   const handleRate = async (value: number) => {

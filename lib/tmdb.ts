@@ -6,16 +6,24 @@ export interface Movie {
   release_date: string;
 }
 
-export async function fetchMovies(): Promise<Movie[]> {
+export async function fetchMovies(
+  query: string,
+  page: number
+) {
+
+  console.log("Fetching URL:", `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&page=${page}`);
+
   const res = await fetch(
-    `https://api.themoviedb.org/3/search/movie?query=return`,
+    `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(
+      query
+    )}&page=${page}`,
     {
       headers: {
         Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
         "Content-Type": "application/json",
       },
-      next: { revalidate: 60 },
-    },
+       cache: "no-store",
+    }
   );
 
   if (!res.ok) {
@@ -23,5 +31,5 @@ export async function fetchMovies(): Promise<Movie[]> {
   }
 
   const data = await res.json();
-  return data.results;
+  return data; 
 }

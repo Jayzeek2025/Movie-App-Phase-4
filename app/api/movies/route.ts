@@ -7,8 +7,6 @@ export async function GET(req: Request) {
 
     const query = searchParams.get("query") || "";
     const page = Number(searchParams.get("page") || "1");
-    
-    console.log("Query:", query, "Page:", page);
 
     const data = await fetchMovies(query, page);
 

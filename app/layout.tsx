@@ -3,6 +3,7 @@
 import "antd/dist/reset.css";
 import { Layout } from "antd";
 import type { ReactNode } from "react";
+import { GenreProvider } from "@/context/GenreContext";
 
 const { Header, Content } = Layout;
 
@@ -22,7 +23,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             Movie Explorer
           </Header>
 
-          <Content style={{ padding: "40px 80px" }}>{children}</Content>
+          <GenreProvider>
+            <Content style={{ padding: "40px 80px" }}>
+              {children}
+            </Content>
+          </GenreProvider>
+
         </Layout>
       </body>
     </html>

@@ -5,6 +5,7 @@ A full-stack Movie Search and Rating application built with Next.js 15 (App Rout
 🚀 Live Deployment
 
 🔗 Vercel Deployment:
+
 movie-explorer-app-git-main-jcs-projects-db783351.vercel.app
 
 📌 Project Overview

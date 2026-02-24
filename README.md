@@ -1,80 +1,63 @@
-🎬 Movie Explorer App
+# 🎬 Movie Explorer App
 
-A full-stack Movie Search and Rating application built with Next.js 15 (App Router) and deployed on Vercel.
+## 🌍 Live Deployment
 
-🚀 Live Deployment
+👉 https://movie-explorer-app-git-main-jcs-projects-db783351.vercel.app
 
-🔗 Vercel Deployment:
+---
 
-movie-explorer-app-git-main-jcs-projects-db783351.vercel.app
+## 📌 Project Overview
 
-📌 Project Overview
+Movie Explorer is a full-stack Movie Search and Rating application built with **Next.js 15 (App Router)** and deployed on **Vercel**.
 
-Movie Explorer allows users to:
+The application integrates with the **TMDB API** and allows users to search, view, and rate movies using a guest session.
 
-🔍 Search movies using TMDB API
-⭐ Rate movies using a guest session
-📂 View rated movies in a separate tab
-🎨 View movie details including:
+---
 
-Poster
+## 🚀 Features
 
-Overview
+### 🔍 Movie Search
+- Debounced search input
+- Pagination support
+- Error handling with user feedback
 
-Release date
+### ⭐ Movie Rating
+- 5-star rating system
+- Ratings sent to TMDB API
+- Updates rated list dynamically
 
-Average rating (color-coded badge)
+### 👤 Guest Session Authentication
+- Automatically creates guest session
+- Stores session in localStorage
+- Persists user ratings across refresh
 
-📄 Paginate search results
+### 📂 Rated Movies Tab
+- Fetches rated movies for current guest session
+- Displays user-rated movies separately
 
-This project demonstrates:
+### 🎨 Movie Details Page
+- Poster
+- Overview
+- Release date
+- Average rating (color-coded badge)
 
-API route handling in Next.js App Router
-Server-side data fetching
-Environment variable configuration
-Guest session authentication
-Deployment to Vercel
+### 🎭 Genre API Integration
+- Fetches genre list from TMDB
+- Context-based state management
 
-🛠 Tech Stack
+---
 
-Next.js 15 (App Router)
-TypeScript
-Ant Design (UI components)
-TMDB API
-Vercel (Deployment)
-ESLint
+## 🛠 Tech Stack
 
-🧩 Features Implemented
-✅ Search Functionality
+- **Next.js 15 (App Router)**
+- **TypeScript**
+- **Ant Design**
+- **TMDB API**
+- **Vercel (Deployment)**
+- **ESLint**
 
-Debounced search input
-Pagination support
-Error handling with user feedback
+---
 
-✅ Guest Session Authentication
+## 🔐 Environment Variables
 
-Automatically creates guest session
-Stores session in localStorage
-Persists user ratings
-
-✅ Movie Rating
-
-5-star rating system
-Sends rating to TMDB API
-Updates Rated tab dynamically
-
-✅ Rated Movies Tab
-
-Fetches rated movies for current guest session
-Displays user-rated movies separately
-
-✅ Genre API Integration
-
-Fetches genre list from TMDB
-Context-based state management
-
-✅ Production Ready
-
-Lint checks passed
-TypeScript validation passed
-Successfully deployed on Vercel
+This project requires a TMDB API key.

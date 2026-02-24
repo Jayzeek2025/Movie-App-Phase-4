@@ -1,5 +1,12 @@
 # 🎬 Movie Explorer App
 
+## 🔒 Security Note
+
+The `.env.local` file is not included in this repository for security reasons.
+
+Use `.env.example` as a reference for required variables.
+
+
 ## 🌍 Live Deployment
 
 👉 https://movie-explorer-app-git-main-jcs-projects-db783351.vercel.app

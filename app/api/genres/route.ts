@@ -8,7 +8,7 @@ export async function GET() {
   } catch (error) {
     return NextResponse.json(
       { message: "Failed to fetch genres" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

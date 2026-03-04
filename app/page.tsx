@@ -43,8 +43,12 @@ export default function HomePage() {
     // Initial load
     loadRatedMovies();
 
-    // 🔥 Listen for rating updates
-    const handler = () => loadRatedMovies();
+    const handler = () => {
+      setTimeout(() => {
+        loadRatedMovies();
+      }, 500);
+    };
+
     window.addEventListener("rated-updated", handler);
 
     return () => {

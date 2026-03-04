@@ -14,9 +14,7 @@ interface Props {
 
 export default function MovieCard({ movie }: Props) {
   const [guestSessionId, setGuestSessionId] = useState<string | null>(null);
-  const [userRating, setUserRating] = useState<number>(
-    movie.rating || 0
-  );
+  const [userRating, setUserRating] = useState<number>(movie.rating || 0);
 
   useEffect(() => {
     const session = localStorage.getItem("guestSessionId");
@@ -26,8 +24,8 @@ export default function MovieCard({ movie }: Props) {
 
     // If movie comes from rated endpoint, it includes rating
     if (movie.rating) {
-  setUserRating(movie.rating);
-}
+      setUserRating(movie.rating);
+    }
   }, [movie]);
 
   const handleRate = async (value: number) => {
@@ -52,8 +50,10 @@ export default function MovieCard({ movie }: Props) {
 
       setUserRating(value);
 
-      // 🔥 Trigger refresh by reloading page data
-      window.dispatchEvent(new Event("rated-updated"));
+      // wait for TMDB to register the rating
+      setTimeout(() => {
+        window.dispatchEvent(new Event("rated-updated"));
+      }, 700);
     } catch (error) {
       console.error("Rating error:", error);
     }
@@ -119,11 +119,7 @@ export default function MovieCard({ movie }: Props) {
 
             {/* ⭐ Star Rating */}
             <div style={{ marginTop: 10 }}>
-              <Rate
-                allowHalf
-                value={userRating}
-                onChange={handleRate}
-              />
+              <Rate allowHalf value={userRating} onChange={handleRate} />
             </div>
 
             <div style={{ marginTop: 8 }}>

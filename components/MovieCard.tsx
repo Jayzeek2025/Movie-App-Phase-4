@@ -31,6 +31,9 @@ export default function MovieCard({ movie }: Props) {
   const handleRate = async (value: number) => {
     if (!guestSessionId) return;
 
+    // ⭐ Update UI instantly
+    setUserRating(value);
+
     try {
       const res = await fetch("/api/rate", {
         method: "POST",
@@ -48,12 +51,14 @@ export default function MovieCard({ movie }: Props) {
         throw new Error("Failed to rate movie");
       }
 
-      setUserRating(value);
-
-      // wait for TMDB to register the rating
+      // refresh rated list
       setTimeout(() => {
         window.dispatchEvent(new Event("rated-updated"));
-      }, 700);
+      }, 600);
+
+      setTimeout(() => {
+        window.dispatchEvent(new Event("rated-updated"));
+      }, 1500);
     } catch (error) {
       console.error("Rating error:", error);
     }
@@ -119,7 +124,12 @@ export default function MovieCard({ movie }: Props) {
 
             {/* ⭐ Star Rating */}
             <div style={{ marginTop: 10 }}>
-              <Rate allowHalf value={userRating} onChange={handleRate} />
+              <Rate
+                allowHalf
+                allowClear={false}
+                value={userRating}
+                onChange={handleRate}
+              />
             </div>
 
             <div style={{ marginTop: 8 }}>
